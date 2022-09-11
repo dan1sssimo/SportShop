@@ -6,5 +6,8 @@
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('home') }}">Головна</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('contact') }}">Контакти</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('about') }}">Про нас</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('login') }}">Вхід</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('register') }}">Реєстрація</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('dashboard') }}">Особистий кабінет</a>
         </nav>
-    </div>
+</div>
