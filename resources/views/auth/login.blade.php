@@ -35,16 +35,19 @@
                     </div>
                 </div>
 
-                <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
+                <h4 class="text-muted text-center font-size-18"><b>Login</b></h4>
 
                 <div class="p-3">
+                    <!-- Session Status -->
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
+                    <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
                     <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group mb-3 row">
                             <div class="col-12">
-                                <input class="form-control" type="text" required="" placeholder="UserName" id="username"
+                                <input class="form-control" type="text" required="" placeholder="Username" id="username"
                                        name="username">
                             </div>
                         </div>

@@ -4,12 +4,12 @@
 <head>
 
     <meta charset="utf-8"/>
-    <title>Register | SportShop - Admin & Dashboard Template</title>
+    <title>Register | SportShop </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesdesign" name="author"/>
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('backend/')}}assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.ico')}}">
     <!-- Bootstrap Css -->
     <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet"
           type="text/css"/>
@@ -35,23 +35,26 @@
                     </div>
                 </div>
 
-                <h4 class="text-muted text-center font-size-18"><b>Реєстрація</b></h4>
+                <h4 class="text-muted text-center font-size-18"><b>Register</b></h4>
 
                 <div class="p-3">
-
+                    <!-- Session Status -->
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
+                    <!-- Validation Errors -->
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
                     <form class="form-horizontal mt-3" method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group mb-3 row">
                             <div class="col-12">
                                 <input class="form-control" type="text" required="" placeholder="Name" id="name"
-                                       name="name">
+                                       name="name" >
                             </div>
                         </div>
 
                         <div class="form-group mb-3 row">
                             <div class="col-12">
-                                <input class="form-control" type="text" required="" placeholder="UserName" id="username"
+                                <input class="form-control" type="text" required="" placeholder="Username" id="username"
                                        name="username">
                             </div>
                         </div>
