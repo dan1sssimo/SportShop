@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,13 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth','verified'])->name('dashboard');
+    return view('admin.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+//Admin All Route
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/admin/logout', 'destroy')->name('admin.logout');
+});
+
+
+require __DIR__ . '/auth.php';
