@@ -38,6 +38,7 @@
                 <h4 class="text-muted text-center font-size-18"><b>Sign In</b></h4>
 
                 <div class="p-3">
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
                     <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
                         @csrf
 
