@@ -37,7 +37,7 @@ CREATE TABLE `carts` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `categories`
+-- Структура таблицы `subcategories`
 --
 
 CREATE TABLE `categories` (
@@ -46,7 +46,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `categories`
+-- Дамп данных таблицы `subcategories`
 --
 
 INSERT INTO `categories` (`category_id`, `category_name`) VALUES
@@ -311,7 +311,7 @@ ALTER TABLE `carts`
   ADD PRIMARY KEY (`cart_id`);
 
 --
--- Индексы таблицы `categories`
+-- Индексы таблицы `subcategories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
@@ -395,7 +395,7 @@ ALTER TABLE `carts`
   MODIFY `cart_id` int(12) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `categories`
+-- AUTO_INCREMENT для таблицы `subcategories`
 --
 ALTER TABLE `categories`
   MODIFY `category_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;

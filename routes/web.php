@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,12 @@ Route::get('/dashboard', function () {
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
 });
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category/{id}', 'show')->name('category_id');
+    Route::get('/category', 'index')->name('category_all');
+});
+
 
 
 require __DIR__ . '/auth.php';

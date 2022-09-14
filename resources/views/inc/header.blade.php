@@ -6,13 +6,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item ">
-                    <a class="nav-link active" href="#">
+                <li class="nav-item">
+                    <a class="nav-link active1" href="{{route('category_all')}}">
                         Каталог
                     </a>
                     <ul class="submenu">
                         @foreach(\App\Models\Category::all() as $category)
-                            <li class="submenu-link"><a class="nav-link " href="#" role="button">{{$category->category_name}}</a>
+                            <li class="submenu-link"><a class="nav-link" href="{{route('category_id',["id" => $category->category_id])}}" role="button">{{$category->category_name}}</a>
                                 <ul class="submenu">
                                     @foreach(\App\Models\SubCategory::all()->where("category_id", $category->category_id) as $subcategory)
                                         <li><a class="nav-link" href="#">{{$subcategory->subcategory_name}}</a></li>
