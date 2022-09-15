@@ -17,7 +17,7 @@
     <link href="{{asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css"/>
     <!-- App Css-->
     <link href="{{asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css"/>
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
 <body class="auth-body-bg">
@@ -39,9 +39,9 @@
 
                 <div class="p-3">
                     <!-- Session Status -->
-                    <x-auth-session-status class="mb-4" :status="session('status')" />
+                    <x-auth-session-status class="mb-4" :status="session('status')"/>
                     <!-- Validation Errors -->
-                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                    <x-auth-validation-errors class="mb-4" :errors="$errors"/>
                     <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -53,14 +53,17 @@
                         </div>
                         <div class="form-group mb-3 row">
                             <div class="col-12">
-                                <input class="form-control" id="password" name="password" autocomplete="current-password" type="password" required="" placeholder="Password">
+                                <input class="form-control" id="password" name="password"
+                                       autocomplete="current-password" type="password" required=""
+                                       placeholder="Password">
                             </div>
                         </div>
 
                         <div class="form-group mb-3 row">
                             <div class="col-12">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="remember_me" name="remember">
+                                    <input type="checkbox" class="custom-control-input" id="remember_me"
+                                           name="remember">
                                     <label class="form-label ms-1" for="customCheck1">Remember me</label>
                                 </div>
                             </div>
@@ -75,11 +78,13 @@
 
                         <div class="form-group mb-0 row mt-2">
                             <div class="col-sm-7 mt-3">
-                                <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock"></i> Forgot
+                                <a href="{{ route('password.request') }}" class="text-muted"><i
+                                        class="mdi mdi-lock"></i> Forgot
                                     your password?</a>
                             </div>
                             <div class="col-sm-5 mt-3">
-                                <a href="{{route('register')}}" class="text-muted"><i class="mdi mdi-account-circle"></i>
+                                <a href="{{route('register')}}" class="text-muted"><i
+                                        class="mdi mdi-account-circle"></i>
                                     Create an account</a>
                             </div>
                         </div>
@@ -103,6 +108,29 @@
 <script src="{{asset('backend/assets/libs/node-waves/waves.min.js')}}"></script>
 
 <script src="{{asset('backend/assets/js/app.js')}}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+<script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch (type) {
+        case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
+
+        case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
+
+        case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
+
+        case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break;
+    }
+    @endif
+</script>
 </body>
 </html>
