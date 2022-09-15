@@ -15,7 +15,13 @@
                             <li class="submenu-link"><a class="nav-link" href="{{route('category_id',["id" => $category->category_id])}}" role="button">{{$category->category_name}}</a>
                                 <ul class="submenu">
                                     @foreach(\App\Models\SubCategory::all()->where("category_id", $category->category_id) as $subcategory)
-                                        <li><a class="nav-link" href="#">{{$subcategory->subcategory_name}}</a></li>
+                                        <li class="submenu-link"><a class="nav-link" href="{{route('subcategory_id',["id" => $category->category_id])}}" role="button">{{$subcategory->subcategory_name}}</a>
+                                        <ul class="submenu">
+                                            @foreach(\App\Models\SubSubCategory::all()->where("subcategory_id", $subcategory->subcategory_id) as $subsubcategory)
+                                                <li><a class="nav-link" href="#">{{$subsubcategory->subsubcategory_name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </li>

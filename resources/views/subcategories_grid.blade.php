@@ -20,7 +20,7 @@
             @endif
                 <th class="col-3 text-center">
                     <img id="img_category" src="/storage/img/subcategories/{{$subcategories[$id-1]->img}}" alt=" ">
-                    <br>{{$subcategories[$id-1]->subcategory_name}}
+                    <br><a class="nav-link" href="{{route('subcategory_id',["id" => $subcategories[$id-1]->subcategory_id])}}">{{$subcategories[$id-1]->subcategory_name}}</a>
                 </th>
                     @php $id++ @endphp
         @endfor

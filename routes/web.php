@@ -37,7 +37,8 @@ Route::controller(AdminController::class)->group(function () {
 });
 
 Route::controller(CategoryController::class)->group(function () {
-    Route::get('/category/{id}', 'show')->name('category_id');
+    Route::get('/category/{id}', 'show_subcategory')->name('category_id');
+    Route::get('/subcategory/{id}', 'show_subsubcategory')->name('subcategory_id');
     Route::get('/category', 'index')->name('category_all');
 });
 
