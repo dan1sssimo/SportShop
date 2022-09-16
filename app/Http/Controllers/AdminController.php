@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+=======
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+>>>>>>> origin/test
 
 class AdminController extends Controller
 {
@@ -17,6 +22,7 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
+<<<<<<< HEAD
         $notification = array(
             'message' => 'User Logout Successfully',
             'alert-type' => 'success');
@@ -85,5 +91,8 @@ class AdminController extends Controller
             session()->flash('message', 'Old password is not match');
             return redirect()->back();
         }
+=======
+        return redirect('/login');
+>>>>>>> origin/test
     } //End Method
 }

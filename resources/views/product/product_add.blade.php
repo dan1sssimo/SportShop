@@ -71,7 +71,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="subcategory">Город</label>
                                     <select class="form-control" id="subcategory">

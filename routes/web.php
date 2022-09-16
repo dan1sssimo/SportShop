@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+<<<<<<< HEAD
 use App\Http\Controllers\ProductController;
+=======
+use App\Http\Controllers\CategoryController;
+>>>>>>> origin/test
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +38,7 @@ Route::get('/dashboard', function () {
 //Admin All Route
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
+<<<<<<< HEAD
     Route::get('/admin/profile', 'Profile')->name('admin.profile');
     Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
     Route::post('/store/profile', 'StoreProfile')->name('store.profile');
@@ -47,4 +52,16 @@ Route::controller(ProductController::class)->group(function () {
     Route::post('/product/store', 'ProductStore')->name('product.store');
 });
 
+=======
+});
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category/{id}', 'show_subcategory')->name('category_id');
+    Route::get('/subcategory/{id}', 'show_subsubcategory')->name('subcategory_id');
+    Route::get('/category', 'index')->name('category_all');
+});
+
+
+
+>>>>>>> origin/test
 require __DIR__ . '/auth.php';
