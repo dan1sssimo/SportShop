@@ -35,8 +35,8 @@ class ProductController extends Controller
         }
 
         if ($request->ajax()) {
-            $subcategories = Subcategories::where('category_id', $request->category_id)->get()->pluck("subcategory_name", "subcategory_id");
-            $data = view('subcategory', ['subcategories' => $subcategories])->render();
+            $subcategories = Subcategories::all()->where('category_id', $request->category_id);
+            $data = view('product.subcategory', ['subcategories' => $subcategories])->render();
             return response()->json(['options' => $data]);
         }
 
