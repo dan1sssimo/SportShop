@@ -9,5 +9,6 @@
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('login') }}">Вхід</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('register') }}">Реєстрація</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('dashboard') }}">Особистий кабінет</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('product.add') }}">Додати товар</a>
         </nav>
 </div>

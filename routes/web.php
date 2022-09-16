@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +41,10 @@ Route::controller(AdminController::class)->group(function () {
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
 });
 
+//Products All route
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product/add', 'ProductAdd')->name('product.add');
+    Route::post('/product/store', 'ProductStore')->name('product.store');
+});
 
 require __DIR__ . '/auth.php';
