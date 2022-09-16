@@ -73,9 +73,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="subcategory">Город</label>
+                                    <label for="subcategory">Виберіть підкатегорію</label>
                                     <select class="form-control" id="subcategory">
-                                        <option>Выберите город</option>
+                                        <option></option>
                                     </select>
                                 </div>
 
@@ -122,10 +122,8 @@
     </script>
     <script type="text/javascript">
         $("#category").change(function () {
-            var id_category = $(this).val();
+            var category_id = $(this).val();
             var token = $("input[name='_token']").val();
-            console.log(id_category);
-            console.log(token);
 
             $.ajax({
                 url: "{{ route('product.store') }}",
