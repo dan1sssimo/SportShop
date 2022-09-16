@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 11 2022 г., 14:50
+-- Время создания: Сен 15 2022 г., 11:44
 -- Версия сервера: 5.7.33
 -- Версия PHP: 8.0.14
 
@@ -27,11 +27,12 @@ SET time_zone = "+00:00";
 -- Структура таблицы `carts`
 --
 
-CREATE TABLE `carts` (
-  `cart_id` int(12) NOT NULL,
+CREATE TABLE IF NOT EXISTS `carts` (
+  `cart_id` int(12) NOT NULL AUTO_INCREMENT,
   `user_id` int(12) NOT NULL,
   `time_cart` datetime DEFAULT CURRENT_TIMESTAMP,
-  `info_cart` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `info_cart` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`cart_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -40,10 +41,11 @@ CREATE TABLE `carts` (
 -- Структура таблицы `subcategories`
 --
 
-CREATE TABLE `categories` (
-  `category_id` int(12) NOT NULL,
-  `category_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `category_id` int(12) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `subcategories`
@@ -67,12 +69,14 @@ INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 -- Структура таблицы `comments`
 --
 
-CREATE TABLE `comments` (
-  `comment_id` int(12) NOT NULL,
+CREATE TABLE IF NOT EXISTS `comments` (
+  `comment_id` int(12) NOT NULL AUTO_INCREMENT,
   `user_id` int(12) NOT NULL,
   `product_id` int(11) NOT NULL,
   `comment_text` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment_rating` int(12) NOT NULL
+  `comment_rating` int(12) NOT NULL,
+  PRIMARY KEY (`comment_id`),
+  KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -81,14 +85,16 @@ CREATE TABLE `comments` (
 -- Структура таблицы `failed_jobs`
 --
 
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -97,11 +103,12 @@ CREATE TABLE `failed_jobs` (
 -- Структура таблицы `migrations`
 --
 
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `migrations`
@@ -119,7 +126,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Структура таблицы `orders`
 --
 
-CREATE TABLE `orders` (
+CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(12) NOT NULL,
   `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone_number` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -129,7 +136,9 @@ CREATE TABLE `orders` (
   `order_city` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_street` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_method` int(12) NOT NULL,
-  `order_comment` text COLLATE utf8mb4_unicode_ci
+  `order_comment` text COLLATE utf8mb4_unicode_ci,
+  KEY `payment_method` (`payment_method`),
+  KEY `order_id` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -138,11 +147,19 @@ CREATE TABLE `orders` (
 -- Структура таблицы `password_resets`
 --
 
-CREATE TABLE `password_resets` (
+CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('danilo.savchenko96@gmail.com', '$2y$10$VIiRMAiIzxtcISS/3xoIh.HcGJfwRqCnTDqbnPizvZREPHLM1ZDOC', '2022-09-14 09:03:01');
 
 -- --------------------------------------------------------
 
@@ -150,9 +167,10 @@ CREATE TABLE `password_resets` (
 -- Структура таблицы `payment_method`
 --
 
-CREATE TABLE `payment_method` (
-  `method_id` int(12) NOT NULL,
-  `method_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+CREATE TABLE IF NOT EXISTS `payment_method` (
+  `method_id` int(12) NOT NULL AUTO_INCREMENT,
+  `method_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`method_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -161,8 +179,8 @@ CREATE TABLE `payment_method` (
 -- Структура таблицы `personal_access_tokens`
 --
 
-CREATE TABLE `personal_access_tokens` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -171,7 +189,10 @@ CREATE TABLE `personal_access_tokens` (
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -180,8 +201,8 @@ CREATE TABLE `personal_access_tokens` (
 -- Структура таблицы `products`
 --
 
-CREATE TABLE `products` (
-  `product_id` int(12) NOT NULL,
+CREATE TABLE IF NOT EXISTS `products` (
+  `product_id` int(12) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_count` int(12) NOT NULL,
   `product_price` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -189,7 +210,9 @@ CREATE TABLE `products` (
   `product_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `post_date` datetime NOT NULL,
   `product_character` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment_id` int(12) NOT NULL
+  `comment_id` int(12) NOT NULL,
+  PRIMARY KEY (`product_id`),
+  KEY `comment_id` (`comment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -198,11 +221,13 @@ CREATE TABLE `products` (
 -- Структура таблицы `subcategories`
 --
 
-CREATE TABLE `subcategories` (
-  `subcategory_id` int(12) NOT NULL,
+CREATE TABLE IF NOT EXISTS `subcategories` (
+  `subcategory_id` int(12) NOT NULL AUTO_INCREMENT,
   `subcategory_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_id` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `category_id` int(12) NOT NULL,
+  PRIMARY KEY (`subcategory_id`),
+  KEY `category_id` (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `subcategories`
@@ -282,21 +307,27 @@ INSERT INTO `subcategories` (`subcategory_id`, `subcategory_name`, `category_id`
 -- Структура таблицы `users`
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
+<<<<<<< HEAD:database/sport_shop (1).sql
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'danylo', 'danilo.savchenko96@gmail.com', NULL, '$2y$10$RV2kYInEd3lmUVNmzx9ClONPCj3UuwTLv8Wi/a63/EFhqKeBF78te', 'fzEkh2PaGZGVnimYDKR1fAYMT9oheR7q62222nMjmcy9wvHJdwePTdaB5XpI', '2022-09-10 06:36:49', '2022-09-10 06:36:49');
 
@@ -447,6 +478,12 @@ ALTER TABLE `subcategories`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `username`, `profile_image`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'danylo', 'danilo.savchenko96@gmail.com', '2022-09-21 08:36:14', '$2y$10$IQOVR2nGMxI2Z1fTnHXx/edzLwLucnTmAFUoZZEZEUzD5pqKTNici', 'danylo\r\n', NULL, '6mI0pKOcBQDS7a02KBFeMdtTmy5eUb92TEmEijwQ68RLJC1OJ6qjMXulbn5F', '2022-09-10 06:36:49', '2022-09-14 05:35:55'),
+(6, 'test12345', 'test1@1234', '2022-09-12 10:07:37', '$2y$10$oIFQnuTfWGyhc30YT0LBWOSEUm1lWHkLdwfkpmx.exdsUZsKY7eza', 'test1', '202209141207папич-arthas.gif', 'xhP1QxUZhGIHlwgt6GATHCQRqhMNSFg6ZhU3KVKDbVAHIaGT3y2whEzZz27I', '2022-09-12 10:07:08', '2022-09-15 05:40:43'),
+(7, 'beta', 'beta@123', '2022-09-14 05:37:27', '$2y$10$nn3/drB0K265etZc8Qr.buvxoCMNB/VpknqnA8QpPtRI9CU5dC7Xy', 'beta', NULL, 'DNRu41WjRdCffcd1vIOTWeuC5DrSPzPKKB2KDnfVImggx4V29m2Ig0W4FAU0', '2022-09-14 05:37:18', '2022-09-14 05:38:02');
+>>>>>>> origin/prelast:database/sport_shop (3).sql
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

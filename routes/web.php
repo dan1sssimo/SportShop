@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+<<<<<<< HEAD
 use App\Http\Controllers\CategoryController;
+=======
+use App\Http\Controllers\ProductController;
+>>>>>>> origin/prelast
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +38,7 @@ Route::get('/dashboard', function () {
 //Admin All Route
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
+<<<<<<< HEAD
 });
 
 Route::controller(CategoryController::class)->group(function () {
@@ -44,4 +49,19 @@ Route::controller(CategoryController::class)->group(function () {
 
 
 
+=======
+    Route::get('/admin/profile', 'Profile')->name('admin.profile');
+    Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
+    Route::post('/store/profile', 'StoreProfile')->name('store.profile');
+    Route::get('/change/password', 'ChangePassword')->name('change.password');
+    Route::post('/update/password', 'UpdatePassword')->name('update.password');
+});
+
+//Products All route
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product/add', 'ProductAdd')->name('product.add');
+    Route::post('/product/store', 'ProductStore')->name('product.store');
+});
+
+>>>>>>> origin/prelast
 require __DIR__ . '/auth.php';

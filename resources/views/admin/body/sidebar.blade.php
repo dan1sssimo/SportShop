@@ -9,7 +9,11 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
+<<<<<<< HEAD
                     <a href="index.html" class="waves-effect">
+=======
+                    <a href="#" class="waves-effect">
+>>>>>>> origin/prelast
                         <i class="ri-dashboard-line"></i><span
                             class="badge rounded-pill bg-success float-end">3</span>
                         <span>Dashboard</span>
@@ -17,7 +21,11 @@
                 </li>
 
                 <li>
+<<<<<<< HEAD
                     <a href="calendar.html" class=" waves-effect">
+=======
+                    <a href="#" class=" waves-effect">
+>>>>>>> origin/prelast
                         <i class="ri-calendar-2-line"></i>
                         <span>Calendar</span>
                     </a>
@@ -29,6 +37,7 @@
                         <span>Email</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+<<<<<<< HEAD
                         <li><a href="email-inbox.html">Inbox</a></li>
                         <li><a href="email-read.html">Read Email</a></li>
                     </ul>
@@ -62,6 +71,10 @@
                                 <li><a href="layouts-hori-colored-header.html">Colored Header</a></li>
                             </ul>
                         </li>
+=======
+                        <li><a href="#">Inbox</a></li>
+                        <li><a href="#">Read Email</a></li>
+>>>>>>> origin/prelast
                     </ul>
                 </li>
 
@@ -73,10 +86,16 @@
                         <span>Authentication</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+<<<<<<< HEAD
                         <li><a href="auth-login.html">Login</a></li>
                         <li><a href="auth-register.html">Register</a></li>
                         <li><a href="auth-recoverpw.html">Recover Password</a></li>
                         <li><a href="auth-lock-screen.html">Lock Screen</a></li>
+=======
+                        <li><a href="{{route('login')}}">Login</a></li>
+                        <li><a href="{{route('register')}}">Register</a></li>
+                        <li><a href="#">Recover Password</a></li>
+>>>>>>> origin/prelast
                     </ul>
                 </li>
 
@@ -86,12 +105,18 @@
                         <span>Utility</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+<<<<<<< HEAD
                         <li><a href="pages-starter.html">Starter Page</a></li>
                         <li><a href="pages-timeline.html">Timeline</a></li>
                         <li><a href="pages-directory.html">Directory</a></li>
                         <li><a href="pages-invoice.html">Invoice</a></li>
                         <li><a href="pages-404.html">Error 404</a></li>
                         <li><a href="pages-500.html">Error 500</a></li>
+=======
+                        <li><a href="{{route('home')}}">Starter Page</a></li>
+                        <li><a href="#">Error 404</a></li>
+                        <li><a href="#">Error 500</a></li>
+>>>>>>> origin/prelast
                     </ul>
                 </li>
             </ul>

@@ -47,9 +47,15 @@
             </div>
             <div class="nav-item">
             <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('dashboard') }}">Особистий кабінет</a>
+<<<<<<< HEAD
             </div>
         </div>
     </div>
 </nav>
 
 
+=======
+            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('product.add') }}">Додати товар</a>
+        </nav>
+</div>
+>>>>>>> origin/prelast
