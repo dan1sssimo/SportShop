@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
@@ -47,5 +48,12 @@ Route::controller(ProductController::class)->group(function () {
     Route::post('/product/store', 'ProductStore')->name('product.store'); //send form
     Route::post('/product/subcategory', 'SubCategoryStore')->name('product.subcategory');  // ajax form
     Route::post('/product/subsubcategory', 'SubSubCategoryStore')->name('product.subsubcategory');  // ajax form
+});
+
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category/{id}', 'show_subcategory')->name('category_id');
+    Route::get('/subcategory/{id}', 'show_subsubcategory')->name('subcategory_id');
+    Route::get('/category', 'index')->name('category_all');
 });
 require __DIR__ . '/auth.php';

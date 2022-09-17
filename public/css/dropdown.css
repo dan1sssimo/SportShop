@@ -1,0 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,cyrillic);
+*{box-sizing: border-box;}
+body {
+    margin: 0;
+    background: #f7f9fe;
+    font-family: 'Open Sans', sans-serif;
+}
+nav {
+    background: white;
+    box-shadow: 0 2px 0 0 #ECF1F2;
+    border-top: 1px solid #ECF1F2;
+    text-align: center;
+}
+nav a {
+    text-decoration: none;
+    display: block;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu li a:hover {
+    color: black;
+    font-weight: bold;
+    background-color: darkgray;
+}
+.submenu {
+    position: absolute;
+    z-index: 5;
+    width: 240px;
+    border-bottom: 1px solid #ECF1F2;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: .3s ease-in-out;
+}
+.submenu li {position: relative;}
+.submenu a {
+    background: white;
+    border-top: 1px solid #ECF1F2;
+    border-right: 1px solid #ECF1F2;
+    border-left: 1px solid #ECF1F2;
+    color: #1c1c1c;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+}
+.submenu .submenu {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 1px);
+    left: -webkit-calc(100% - 1px);
+}
+nav li:hover > .submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+}
