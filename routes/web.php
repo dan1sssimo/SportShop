@@ -33,18 +33,19 @@ Route::get('/dashboard', function () {
 
 //Admin All Route
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
-    Route::get('/admin/profile', 'Profile')->name('admin.profile');
-    Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
-    Route::post('/store/profile', 'StoreProfile')->name('store.profile');
-    Route::get('/change/password', 'ChangePassword')->name('change.password');
-    Route::post('/update/password', 'UpdatePassword')->name('update.password');
+    Route::get('/admin/logout', 'destroy')->name('admin.logout'); //logout
+    Route::get('/admin/profile', 'Profile')->name('admin.profile'); // profile
+    Route::get('/edit/profile', 'EditProfile')->name('edit.profile'); //editProfile
+    Route::post('/store/profile', 'StoreProfile')->name('store.profile'); //Profile
+    Route::get('/change/password', 'ChangePassword')->name('change.password');// changePass
+    Route::post('/update/password', 'UpdatePassword')->name('update.password'); // updatePass
 });
 
 //Products All route
 Route::controller(ProductController::class)->group(function () {
-    Route::get('/product/add', 'ProductAdd')->name('product.add');
-    Route::post('/product/store', 'ProductStore')->name('product.store');
+    Route::get('/product/add', 'ProductAdd')->name('product.add'); //upload view
+    Route::post('/product/store', 'ProductStore')->name('product.store'); //send form
+    Route::post('/product/subcategory', 'SubCategoryStore')->name('product.subcategory');  // ajax form
+    Route::post('/product/subsubcategory', 'SubSubCategoryStore')->name('product.subsubcategory');  // ajax form
 });
-
 require __DIR__ . '/auth.php';
