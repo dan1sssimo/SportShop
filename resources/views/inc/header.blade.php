@@ -16,11 +16,11 @@
                                 <ul class="submenu">
                                     @foreach(\App\Models\Subcategories::all()->where("category_id", $category->category_id) as $subcategory)
                                         <li class="submenu-link"><a class="nav-link" href="{{route('subcategory_id',["id" => $category->category_id])}}" role="button">{{$subcategory->subcategory_name}}</a>
-                                        <ul class="submenu">
-                                            @foreach(\App\Models\Subsubcategories::all()->where("subcategory_id", $subcategory->subcategory_id) as $subsubcategory)
-                                                <li><a class="nav-link" href="#">{{$subsubcategory->subsubcategory_name}}</a></li>
-                                            @endforeach
-                                        </ul>
+                                            <ul class="submenu">
+                                                @foreach(\App\Models\Subsubcategories::all()->where("subcategory_id", $subcategory->subcategory_id) as $subsubcategory)
+                                                    <li><a class="nav-link" href="#">{{$subsubcategory->subsubcategory_name}}</a></li>
+                                                @endforeach
+                                            </ul>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -40,13 +40,13 @@
                 </form>
             </ul>
             <div class="nav-item">
-            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('login') }}">Вхід</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('login') }}">Вхід</a>
             </div>
             <div class="nav-item">
-            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('register') }}">Реєстрація</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('register') }}">Реєстрація</a>
             </div>
             <div class="nav-item">
-            <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('dashboard') }}">Особистий кабінет</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('dashboard') }}">Особистий кабінет</a>
             </div>
         </div>
     </div>
