@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand text-dark" href="{{route("home")}}">SportShop</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -12,13 +13,18 @@
                     </a>
                     <ul class="submenu">
                         @foreach(\App\Models\Category::all() as $category)
-                            <li class="submenu-link"><a class="nav-link" href="{{route('category_id',["id" => $category->category_id])}}" role="button">{{$category->category_name}}</a>
+                            <li class="submenu-link"><a class="nav-link"
+                                                        href="{{route('category_id',["id" => $category->category_id])}}"
+                                                        role="button">{{$category->category_name}}</a>
                                 <ul class="submenu">
                                     @foreach(\App\Models\Subcategories::all()->where("category_id", $category->category_id) as $subcategory)
-                                        <li class="submenu-link"><a class="nav-link" href="{{route('subcategory_id',["id" => $category->category_id])}}" role="button">{{$subcategory->subcategory_name}}</a>
+                                        <li class="submenu-link"><a class="nav-link"
+                                                                    href="{{route('subcategory_id',["id" => $category->category_id])}}"
+                                                                    role="button">{{$subcategory->subcategory_name}}</a>
                                             <ul class="submenu">
                                                 @foreach(\App\Models\Subsubcategories::all()->where("subcategory_id", $subcategory->subcategory_id) as $subsubcategory)
-                                                    <li><a class="nav-link" href="#">{{$subsubcategory->subsubcategory_name}}</a></li>
+                                                    <li><a class="nav-link"
+                                                           href="#">{{$subsubcategory->subsubcategory_name}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </li>
@@ -39,14 +45,17 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </ul>
+            @if(empty(Auth::user()))
             <div class="nav-item">
                 <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('login') }}">Вхід</a>
             </div>
             <div class="nav-item">
                 <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('register') }}">Реєстрація</a>
             </div>
+            @endif
             <div class="nav-item">
-                <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('dashboard') }}">Особистий кабінет</a>
+                <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('dashboard') }}">Особистий
+                    кабінет</a>
             </div>
         </div>
     </div>
