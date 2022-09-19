@@ -45,6 +45,9 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </ul>
+            <div class="nav-item">
+                <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('product.add') }}">Додати товар</a>
+            </div>
             @if(empty(Auth::user()))
             <div class="nav-item">
                 <a class="me-3 py-2 text-dark text-decoration-none" href="{{ route('login') }}">Вхід</a>
