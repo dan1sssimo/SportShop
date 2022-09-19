@@ -4,8 +4,7 @@
 @endsection
 @section('content')
     <body class="auth-body-bg">
-    <div class="bg-overlay"></div>
-    <div class="wrapper-page">
+    <div class="bg-black mt-5" style="margin: 10%">
         <div class="container-fluid p-0">
             <div class="card">
                 <div class="card-body">
@@ -119,7 +118,6 @@
                         </form>
                     </div>
                     <!-- end -->
-                </div>
                 <!-- end cardbody -->
             </div>
             <!-- end card -->
