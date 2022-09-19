@@ -32,7 +32,7 @@ File: Main Css File
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../fonts/inter-bold.woff2?v=3.13") format("woff2"), url("../fonts/iter-bold.woff?v=3.13") format("woff");
+  src: url("../fonts/inter-bold.woff2?v=3.13") format("woff2"), url("../fonts/inter-bold.woff?v=3.13") format("woff");
 }
 #page-topbar {
   position: fixed;
@@ -1112,10 +1112,10 @@ body[data-layout=horizontal][data-layout-size=boxed] .container-fluid, body[data
 
 /*!
  * Waves v0.7.6
- * http://fian.my.id/Waves 
- * 
- * Copyright 2014-2018 Alfiana E. Sibuea and other contributors 
- * Released under the MIT license 
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014-2018 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
  * https://github.com/fians/Waves/blob/master/LICENSE */
 .waves-effect {
   position: relative;
@@ -3941,5 +3941,4 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
   font-weight: 700;
   line-height: 150px;
   text-shadow: rgba(61, 61, 61, 0.3) 1px 1px, rgba(61, 61, 61, 0.2) 2px 2px, rgba(61, 61, 61, 0.3) 3px 3px;
-}(61, 61, 61, 0.2) -2px 2px, rgba(61, 61, 61, 0.3) -3px 3px;
 }

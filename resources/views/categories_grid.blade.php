@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <h1>Каталог</h1>
-    <table class="table">
+    <table class="table mb-5">
         @php
             $id = $categories[0]->category_id;
         @endphp

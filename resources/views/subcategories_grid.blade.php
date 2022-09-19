@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <h1>{{$category_name}}</h1>
-    <table class="table">
+    <table class="table mb-5">
         @foreach($subcategories as $subcategory)
         @php
             $id = $subcategory->subcategory_id;

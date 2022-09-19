@@ -23,7 +23,6 @@
 
                         <form class="form-horizontal mt-3" method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
                             @csrf
-
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Назва
                                     продукту</label>
