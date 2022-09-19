@@ -32,8 +32,11 @@
     <!-- App Css-->
     <link href=" {{asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css"/>
 
+<<<<<<< HEAD
+=======
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
+>>>>>>> origin/prelast
 </head>
 
 <body data-topbar="dark">
@@ -100,6 +103,8 @@
 
 <!-- App js -->
 <script src="{{asset('backend/assets/js/app.js')}}"></script>
+<<<<<<< HEAD
+=======
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -124,6 +129,7 @@
     }
     @endif
 </script>
+>>>>>>> origin/prelast
 </body>
 
 </html>

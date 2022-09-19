@@ -4,7 +4,11 @@
 <head>
 
     <meta charset="utf-8"/>
+<<<<<<< HEAD
+    <title>Login | SportShop - Admin & Dashboard Template</title>
+=======
     <title>Login | SportShop </title>
+>>>>>>> origin/prelast
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesdesign" name="author"/>
@@ -17,6 +21,26 @@
     <link href="{{asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css"/>
     <!-- App Css-->
     <link href="{{asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css"/>
+<<<<<<< HEAD
+
+</head>
+
+<body class="auth-body-bg">
+<div class="bg-overlay"></div>
+<div class="wrapper-page">
+    <div class="container-fluid p-0">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="text-center mt-4">
+                    <div class="mb-3">
+                        <a href="#" class="auth-logo">
+                            <img src="{{asset('logo/logo.png')}}" width="75px">
+                        </a>
+                    </div>
+                </div>
+
+=======
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
@@ -35,13 +59,20 @@
                     </div>
                 </div>
 
+>>>>>>> origin/prelast
                 <h4 class="text-muted text-center font-size-18"><b>Login</b></h4>
 
                 <div class="p-3">
                     <!-- Session Status -->
+<<<<<<< HEAD
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
+                    <!-- Validation Errors -->
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+=======
                     <x-auth-session-status class="mb-4" :status="session('status')"/>
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors"/>
+>>>>>>> origin/prelast
                     <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -53,17 +84,25 @@
                         </div>
                         <div class="form-group mb-3 row">
                             <div class="col-12">
+<<<<<<< HEAD
+                                <input class="form-control" id="password" name="password" autocomplete="current-password" type="password" required="" placeholder="Password">
+=======
                                 <input class="form-control" id="password" name="password"
                                        autocomplete="current-password" type="password" required=""
                                        placeholder="Password">
+>>>>>>> origin/prelast
                             </div>
                         </div>
 
                         <div class="form-group mb-3 row">
                             <div class="col-12">
                                 <div class="custom-control custom-checkbox">
+<<<<<<< HEAD
+                                    <input type="checkbox" class="custom-control-input" id="remember_me" name="remember">
+=======
                                     <input type="checkbox" class="custom-control-input" id="remember_me"
                                            name="remember">
+>>>>>>> origin/prelast
                                     <label class="form-label ms-1" for="customCheck1">Remember me</label>
                                 </div>
                             </div>
@@ -78,6 +117,13 @@
 
                         <div class="form-group mb-0 row mt-2">
                             <div class="col-sm-7 mt-3">
+<<<<<<< HEAD
+                                <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock"></i> Forgot
+                                    your password?</a>
+                            </div>
+                            <div class="col-sm-5 mt-3">
+                                <a href="{{route('register')}}" class="text-muted"><i class="mdi mdi-account-circle"></i>
+=======
                                 <a href="{{ route('password.request') }}" class="text-muted"><i
                                         class="mdi mdi-lock"></i> Forgot
                                     your password?</a>
@@ -85,6 +131,7 @@
                             <div class="col-sm-5 mt-3">
                                 <a href="{{route('register')}}" class="text-muted"><i
                                         class="mdi mdi-account-circle"></i>
+>>>>>>> origin/prelast
                                     Create an account</a>
                             </div>
                         </div>
@@ -108,6 +155,9 @@
 <script src="{{asset('backend/assets/libs/node-waves/waves.min.js')}}"></script>
 
 <script src="{{asset('backend/assets/js/app.js')}}"></script>
+<<<<<<< HEAD
+
+=======
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
@@ -132,5 +182,6 @@
     }
     @endif
 </script>
+>>>>>>> origin/prelast
 </body>
 </html>
