@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
@@ -35,6 +36,7 @@ Route::get('/dashboard', function () {
 
 //Admin All Route
 Route::controller(AdminController::class)->group(function () {
+<<<<<<< HEAD
 
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
 
@@ -46,13 +48,18 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/category', 'index')->name('category_all');
 });
 
+=======
+>>>>>>> main
     Route::get('/admin/logout', 'destroy')->name('admin.logout'); //logout
     Route::get('/admin/profile', 'Profile')->name('admin.profile'); // profile
     Route::get('/edit/profile', 'EditProfile')->name('edit.profile'); //editProfile
     Route::post('/store/profile', 'StoreProfile')->name('store.profile'); //Profile
     Route::get('/change/password', 'ChangePassword')->name('change.password');// changePass
     Route::post('/update/password', 'UpdatePassword')->name('update.password'); // updatePass
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 });
 
 //Products All route
@@ -63,4 +70,10 @@ Route::controller(ProductController::class)->group(function () {
     Route::post('/product/subsubcategory', 'SubSubCategoryStore')->name('product.subsubcategory');  // ajax form
 });
 
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category/{id}', 'show_subcategory')->name('category_id');
+    Route::get('/subcategory/{id}', 'show_subsubcategory')->name('subcategory_id');
+    Route::get('/category', 'index')->name('category_all');
+});
 require __DIR__ . '/auth.php';

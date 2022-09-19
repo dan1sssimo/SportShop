@@ -19,8 +19,13 @@
                 </thead>
             @endif
             <th class="col-3 text-center">
+<<<<<<< HEAD
                 <img id="img_category" src="/storage/img/categories/{{$categories[$id-1]->img}}" alt=" ">
                 <br><a class="nav-link" href="{{route('category_id',["id" => $categories[$id-1]->category_id])}}">{{$categories[$id-1]->category_name}}</a>
+=======
+                <img id="img_category" src="/upload/category_images/{{$categories[$id-1]->img}}" alt=" ">
+                <br><a class="nav-link text-dark" href="{{route('category_id',["id" => $categories[$id-1]->category_id])}}">{{$categories[$id-1]->category_name}}</a>
+>>>>>>> main
             </th>
             @php $id++ @endphp
         @endfor
